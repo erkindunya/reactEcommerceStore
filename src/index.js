@@ -9,12 +9,14 @@ import Contact from "./components/Contact";
 import Store from "./components/Store";
 import Home from "./components/Home";
 import SubSection from './components/SubSection';
+import ItemsInCart from './components/ItemsInCart'
 
 ReactDOM.render(
   <BrowserRouter>
     <BaseLayout>
       <Switch>
         <Route path="/Store/:service" component={SubSection} />
+        <Route path="/MyCart" component={ItemsInCart} />
         <Route path="/About" component={About} />
         <Route path="/Store" component={Store} />
         <Route path="/Contact" component={Contact} />

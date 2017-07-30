@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Store from "./Store";
+import ShoppingCart from "./ShoppingCart";
 
 const highTops = [
   {
@@ -102,8 +103,7 @@ const lowTops = [
     price: "$175"
   },
   {
-    img:
-      "http://d3d71ba2asa5oz.cloudfront.net/62000033/images/zz960001g_1.jpg",
+    img: "http://d3d71ba2asa5oz.cloudfront.net/62000033/images/zz960001g_1.jpg",
     title: "2003 Blue And White New Balance",
     price: "$167"
   },
@@ -129,8 +129,7 @@ const jordans = [
     price: "$220"
   },
   {
-    img:
-      "http://i.ebayimg.com/00/s/NjUwWDEwNjI=/z/RaIAAOSweW5VJMso/$_32.JPG",
+    img: "http://i.ebayimg.com/00/s/NjUwWDEwNjI=/z/RaIAAOSweW5VJMso/$_32.JPG",
     title: "1994 Red Air Jordans",
     price: "$165"
   },
@@ -141,8 +140,7 @@ const jordans = [
     price: "$275"
   },
   {
-    img:
-      "http://www.greekboysgyro.com/images/pic/Jordans%20c7sAcI9s.jpg",
+    img: "http://www.greekboysgyro.com/images/pic/Jordans%20c7sAcI9s.jpg",
     title: "1998 All White Jordans",
     price: "$300"
   },
@@ -153,8 +151,7 @@ const jordans = [
     price: "$255"
   },
   {
-    img:
-      "http://i.ebayimg.com/00/s/ODcyWDEwMjI=/z/tCsAAOSwPhdVJMso/$_32.JPG",
+    img: "http://i.ebayimg.com/00/s/ODcyWDEwMjI=/z/tCsAAOSwPhdVJMso/$_32.JPG",
     title: "1997 Red And White J's",
     price: "$298"
   },
@@ -173,6 +170,19 @@ const jordans = [
 ];
 
 class SubStore extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      purchases: []
+    };
+  }
+
+  addToCart = e => {
+    let shoePurchased = e.target.id;
+    let purchases = this.state.purchases;
+    purchases.push(shoePurchased);
+    this.setState({ purchases });
+  };
   render() {
     let flex = {
       display: "flex",
@@ -182,7 +192,7 @@ class SubStore extends Component {
     };
 
     let shoeContainer = {
-      width: "31.8%",
+      width: "30%",
       textAlign: "center",
       margin: 10
     };
@@ -192,13 +202,12 @@ class SubStore extends Component {
     };
 
     let title = {
-      fontFamily: 'Julius Sans One'
-    }
+      fontFamily: "Julius Sans One"
+    };
 
     let page = this.props.match.params.service;
-    console.log(page);
     if (page === "HighTops") {
-      let shoes = highTops.map(e => {
+      let shoes = highTops.map((e, i) => {
         return (
           <div style={shoeContainer} key={Math.random()}>
             <div>
@@ -212,7 +221,9 @@ class SubStore extends Component {
                 {e.price}
               </p>
               <p>
-                <button id={e.price}>Buy</button>
+                <button onClick={this.addToCart} id={e.title}>
+                  Add To Cart
+                </button>
               </p>
             </div>
           </div>
@@ -220,6 +231,7 @@ class SubStore extends Component {
       });
       return (
         <div className="highTops">
+          <ShoppingCart items={this.state.purchases.length} />
           <Store />
           <div style={flex} className="highTopShop">
             {shoes}
@@ -241,7 +253,9 @@ class SubStore extends Component {
                 {e.price}
               </p>
               <p>
-                <button id={e.price}>Buy</button>
+                <button onClick={this.addToCart} id={e.price}>
+                  Add To Cart
+                </button>
               </p>
             </div>
           </div>
@@ -249,6 +263,7 @@ class SubStore extends Component {
       });
       return (
         <div className="lowTops">
+          <ShoppingCart items={this.state.purchases.length} />
           <Store />
           <div style={flex} className="lowTopShoes">
             {shoes}
@@ -256,7 +271,7 @@ class SubStore extends Component {
         </div>
       );
     } else if (page === "Jordans") {
-       let shoes = jordans.map(e => {
+      let shoes = jordans.map(e => {
         return (
           <div style={shoeContainer} key={Math.random()}>
             <div>
@@ -270,7 +285,9 @@ class SubStore extends Component {
                 {e.price}
               </p>
               <p>
-                <button id={e.price}>Buy</button>
+                <button onClick={this.addToCart} id={e.price}>
+                  Add To Cart
+                </button>
               </p>
             </div>
           </div>
@@ -278,6 +295,7 @@ class SubStore extends Component {
       });
       return (
         <div className="jordans">
+          <ShoppingCart purchases={this.state.purchases} items={this.state.purchases.length} />
           <Store />
           <div style={flex} className="jordanShoes">
             {shoes}

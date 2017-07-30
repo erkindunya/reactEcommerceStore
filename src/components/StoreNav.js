@@ -22,7 +22,7 @@ class StoreNav extends Component {
     };
 
 let navContainer = {
-      width: "31.8%",
+      width: "30.8%",
       textAlign: "center",
       margin: 5
     };
