@@ -3,35 +3,42 @@ import { NavLink } from "react-router-dom";
 
 class StoreNav extends Component {
   render() {
+    let margin = {
+      margin: 10,
+      textDecoration: "none"
+    }
     return (
       <div>
         <nav>
-          <NavLink
+          <NavLink style={margin}
             activeStyle={{
-              color: "blue",
-              backgroundColor: "white"
+              color: "gray",
+              backgroundColor: "white",
+              textDecoration: "none"
             }}
-            to="/Store/SectionOne"
+            to="/Store/HighTops"
           >
-            Section One
+            High Tops
           </NavLink>
-          <NavLink
+          <NavLink style={margin}
             activeStyle={{
-              color: "blue",
-              backgroundColor: "white"
+              color: "gray",
+              backgroundColor: "white",
+              textDecoration: "none"
             }}
-            to="/Store/SectionTwo"
+            to="/Store/LowTops"
           >
-            Section Two
+            Low Tops
           </NavLink>
-          <NavLink
+          <NavLink style={margin}
             activeStyle={{
-              color: "blue",
-              backgroundColor: "white"
+              color: "gray",
+              backgroundColor: "white",
+              textDecoration: "none"
             }}
-            to="/Store/SectionThree"
+            to="/Store/Jordans"
           >
-            Section Three
+            Jordans
           </NavLink>
         </nav>
       </div>

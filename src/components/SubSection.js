@@ -3,27 +3,30 @@ import Store from "./Store";
 
 class SubStore extends Component {
   render() {
+    let center = {
+      textAlign: "center"
+    }
     let page = this.props.match.params.service;
     console.log(page);
-    if (page === "SectionOne") {
+    if (page === "HighTops") {
       return (
-        <div>
+        <div style={center}>
           <Store />
-          <h1>This is the first section of the Store</h1>
+          <h1>High Tops</h1>
         </div>
       );
-    } else if (page === "SectionTwo") {
+    } else if (page === "LowTops") {
       return (
-        <div>
+        <div style={center}>
           <Store />
-          <h1>This is the Second section of the Store</h1>
+          <h1>Low Tops</h1>
         </div>
       );
-    } else if (page === "SectionThree") {
+    } else if (page === "Jordans") {
       return (
-        <div>
+        <div style={center}>
           <Store />
-          <h1>This is the Third section of the Store</h1>
+          <h1>Jordans</h1>
         </div>
       );
     }

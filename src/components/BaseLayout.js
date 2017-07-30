@@ -3,6 +3,7 @@ import Navigation from './Navigation';
 
 class BaseLayout extends Component {
   render() {
+    
     return (
       <div>
         <Navigation/>
