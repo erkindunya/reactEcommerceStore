@@ -58,15 +58,127 @@ const highTops = [
   }
 ];
 
+const lowTops = [
+  {
+    img:
+      "https://cdnb.lystit.com/1200/630/tr/photos/34ce-2016/01/22/givenchy-black-classic-low-top-sneakers-product-0-404098699-normal.jpeg",
+    title: "2000 Black Addidas Low Tops",
+    price: "$142"
+  },
+  {
+    img:
+      "https://cdn-images.farfetch-contents.com/11/57/64/95/11576495_7504164_322.jpg",
+    title: "1994 Brown Reebok Low tops",
+    price: "$200"
+  },
+  {
+    img:
+      "https://s-media-cache-ak0.pinimg.com/736x/1b/53/8d/1b538d9055523d122b1a244227302397--skate-shoes-womens-vans-skate-shoes.jpg",
+    title: "1998 Back & White Vans Low Tops",
+    price: "$110"
+  },
+  {
+    img:
+      "https://cdn-images.farfetch-contents.com/11/48/84/61/11488461_7066215_322.jpg",
+    title: "2005 Red Reebok Low Tops",
+    price: "$220"
+  },
+  {
+    img:
+      "http://www.enkaband.net/image/cache/data/category_75/2017-winter-nike-classic-cortez-textile-w-blue-shoes-low-top-trainers-women-903265-1347-500x416_0.jpg",
+    title: "1996 Blue And White Nike Low Tops",
+    price: "$210"
+  },
+  {
+    img:
+      "https://cdnd.lystit.com/photos/d493-2015/06/12/santoni-blue-classic-low-top-sneakers-product-1-837366930-normal.jpeg",
+    title: "RARE - 1982 Baby Blue Nikes",
+    price: "$350"
+  },
+  {
+    img:
+      "https://cdnc.lystit.com/photos/3273-2015/06/16/saint-laurent-gold-classic-court-low-top-trainers-product-2-638423782-normal.jpeg",
+    title: "2003 Gold Reebok Low Tops",
+    price: "$175"
+  },
+  {
+    img:
+      "http://d3d71ba2asa5oz.cloudfront.net/62000033/images/zz960001g_1.jpg",
+    title: "2003 Blue And White New Balance",
+    price: "$167"
+  },
+  {
+    img:
+      "http://www.enkaband.net/image/cache/data/category_76/2017-winter-reebok-classic-classic-leather-spp-black-white-shoes-low-top-trainer-4325-500x416_0.jpg",
+    title: "1994 Blue And White Reeboks",
+    price: "$215"
+  }
+];
+
+const jordans = [
+  {
+    img:
+      "http://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/eaww6vgyna0s0mxmlcts.jpg",
+    title: "2002 Red And White Air Jordans",
+    price: "$175"
+  },
+  {
+    img:
+      "http://14042-presscdn-0-36.pagely.netdna-cdn.com/wp-content/uploads/2010/10/aj-cement.jpg",
+    title: "1998 White Classic Jordans",
+    price: "$220"
+  },
+  {
+    img:
+      "http://i.ebayimg.com/00/s/NjUwWDEwNjI=/z/RaIAAOSweW5VJMso/$_32.JPG",
+    title: "1994 Red Air Jordans",
+    price: "$165"
+  },
+  {
+    img:
+      "http://images.jordansdaily.com/wp-content/uploads/2012/04/the-daily-jordan-jordan-spizike-white-varsity-red-classic-green-2006-05-570x379.jpg",
+    title: "1999 Red And Green Jordans",
+    price: "$275"
+  },
+  {
+    img:
+      "http://www.greekboysgyro.com/images/pic/Jordans%20c7sAcI9s.jpg",
+    title: "1998 All White Jordans",
+    price: "$300"
+  },
+  {
+    img:
+      "http://www.classicairjordanshoes.us/images/classic-air-jordan-9-retro-medium-grey-white-cool-grey-shoes-q52329.jpg",
+    title: "2000 Gray Jordans",
+    price: "$255"
+  },
+  {
+    img:
+      "http://i.ebayimg.com/00/s/ODcyWDEwMjI=/z/tCsAAOSwPhdVJMso/$_32.JPG",
+    title: "1997 Red And White J's",
+    price: "$298"
+  },
+  {
+    img:
+      "http://www.originaljordansforsale.com/images/Classic--Jordan-5-Original-Blue-Purple-Pink-For-Women.jpg",
+    title: "2002 Teal And Pink Womens Jordans",
+    price: "$185"
+  },
+  {
+    img:
+      "http://www.classicairjordanshoes.com/images/2015-Kids-Air-Jordan-7-Retro-White-Silver-Red-Black-Shoes.jpg",
+    title: "1993 Yellow, Red, And White Jordans",
+    price: "$215"
+  }
+];
+
 class SubStore extends Component {
   render() {
-    let center = {
-      textAlign: "center"
-    };
     let flex = {
       display: "flex",
       flexDirection: "row",
-      flexWrap: "wrap"
+      flexWrap: "wrap",
+      alignItems: "baseline"
     };
 
     let shoeContainer = {
@@ -112,17 +224,55 @@ class SubStore extends Component {
         </div>
       );
     } else if (page === "LowTops") {
+      let shoes = lowTops.map(e => {
+        return (
+          <div style={shoeContainer} key={Math.random()}>
+            <div>
+              <p>
+                <img style={shoeImage} src={e.img} alt="" />
+              </p>
+              <h3 style={title}>
+                {e.title}
+              </h3>
+              <p>
+                {e.price}
+              </p>
+            </div>
+          </div>
+        );
+      });
       return (
-        <div style={center}>
+        <div className="lowTops">
           <Store />
-          <h1>Low Tops</h1>
+          <div style={flex} className="lowTopShoes">
+            {shoes}
+          </div>
         </div>
       );
     } else if (page === "Jordans") {
+       let shoes = jordans.map(e => {
+        return (
+          <div style={shoeContainer} key={Math.random()}>
+            <div>
+              <p>
+                <img style={shoeImage} src={e.img} alt="" />
+              </p>
+              <h3 style={title}>
+                {e.title}
+              </h3>
+              <p>
+                {e.price}
+              </p>
+            </div>
+          </div>
+        );
+      });
       return (
-        <div style={center}>
+        <div className="jordans">
           <Store />
-          <h1>Jordans</h1>
+          <div style={flex} className="jordanShoes">
+            {shoes}
+          </div>
         </div>
       );
     }
