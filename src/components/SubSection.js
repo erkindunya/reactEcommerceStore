@@ -211,6 +211,9 @@ class SubStore extends Component {
               <p>
                 {e.price}
               </p>
+              <p>
+                <button id={e.price}>Buy</button>
+              </p>
             </div>
           </div>
         );
@@ -237,6 +240,9 @@ class SubStore extends Component {
               <p>
                 {e.price}
               </p>
+              <p>
+                <button id={e.price}>Buy</button>
+              </p>
             </div>
           </div>
         );
@@ -262,6 +268,9 @@ class SubStore extends Component {
               </h3>
               <p>
                 {e.price}
+              </p>
+              <p>
+                <button id={e.price}>Buy</button>
               </p>
             </div>
           </div>

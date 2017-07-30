@@ -7,7 +7,9 @@ class Navigation extends Component {
   render() {
     let center = {
       textAlign: "center",
-      marginTop: 25
+      marginTop: 25,
+      marginRight: 40,
+      marginLeft: 40
     };
     let link = {
       margin: 10,
@@ -20,6 +22,27 @@ class Navigation extends Component {
         color: "gray"
       }
     };
+    let shoppingCart = {
+      fontSize: 25,
+      padding: 20
+    };
+    let purchases = {
+      color: "white",
+      fontSize: 6,
+      backgroundColor: "red",
+      borderRadius: "50%",
+      width: 12,
+      height: 12,
+      textAlign: "center",
+      margin: "0 auto",
+      position: "relative",
+      bottom: 32,
+      left: 13
+    };
+    let purchaseCount = {
+      textAlign: "center",
+      paddingTop: 2
+    };
 
     return (
       <div style={center}>
@@ -30,7 +53,8 @@ class Navigation extends Component {
               color: "gray",
               backgroundColor: "white"
             }}
-            exact to="/"
+            exact
+            to="/"
           >
             Home
           </NavLink>
@@ -64,6 +88,12 @@ class Navigation extends Component {
           >
             Store
           </NavLink>
+          <div style={shoppingCart}>
+            <i className="fa fa-shopping-cart" aria-hidden="true" />
+            <div style={purchases}>
+              <p style={purchaseCount}> 1 </p>
+            </div>
+          </div>
         </nav>
       </div>
     );
