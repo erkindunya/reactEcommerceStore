@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 class ShoppingCart extends Component {
   render() {
@@ -27,6 +27,7 @@ class ShoppingCart extends Component {
     };
 
     return (
+      <Link to="/MyCart">
         <div style={shoppingCart}>
           <i className="fa fa-shopping-cart" aria-hidden="true" />
           <div style={purchases}>
@@ -35,6 +36,7 @@ class ShoppingCart extends Component {
             </p>
           </div>
         </div>
+      </Link>
     );
   }
 }
