@@ -16,6 +16,7 @@ class Navigation extends Component {
       margin: 10,
       fontFamily: "Julius Sans One",
       textDecoration: "none",
+      color: "black",
       ":hover": {
         color: "red"
       },
