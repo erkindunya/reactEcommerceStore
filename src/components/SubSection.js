@@ -182,6 +182,7 @@ class SubStore extends Component {
     let purchases = this.state.purchases;
     purchases.push(shoePurchased);
     this.setState({ purchases });
+    console.log("purchases::",this.state.purchases)
   };
   render() {
     let flex = {
@@ -231,7 +232,7 @@ class SubStore extends Component {
       });
       return (
         <div className="highTops">
-          <ShoppingCart items={this.state.purchases.length} />
+          <ShoppingCart itemCount={this.state.purchases.length} item={this.state.purchases} />
           <Store />
           <div style={flex} className="highTopShop">
             {shoes}

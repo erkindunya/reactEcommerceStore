@@ -2,6 +2,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class ShoppingCart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      itemsInCart: []
+    };
+  }
+
+
+
   render() {
     let shoppingCart = {
       textAlign: "center",
